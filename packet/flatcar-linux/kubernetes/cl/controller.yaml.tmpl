@@ -169,6 +169,7 @@ storage:
           #!/bin/bash
           # Wrapper for bootkube start
           set -e
+          docker pull k8s.gcr.io/hyperkube-${os_arch}:v1.17.0
           # Move experimental manifests
           [ -n "$(ls /opt/bootkube/assets/manifests-*/* 2>/dev/null)" ] && mv /opt/bootkube/assets/manifests-*/* /opt/bootkube/assets/manifests && rm -rf /opt/bootkube/assets/manifests-*
           exec /usr/bin/rkt run \
